@@ -1,5 +1,5 @@
 ## The problem definition
-Suppose, you have a hash index:
+Suppose, you have a hash index stored as python dict:
 
     In [10]: hash_index = {abs(i-4): i * 10 for i in range(5)}
     In [11]: hash_index
