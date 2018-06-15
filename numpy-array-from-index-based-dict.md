@@ -23,7 +23,7 @@ There is a [numpy.fromfunction](https://docs.scipy.org/doc/numpy-1.13.0/referenc
 
 > Construct an array by executing a function over each coordinate.
 
-But when you run the code, it looks like the function is executed once with indexes as a parameter, instead of being called once for each coordinate:
+But when you run the code, it looks like the function is executed once with all possible coordinates as a parameter, instead of being called once for each coordinate:
 
     In [13]: np.fromfunction(lambda x: d1[x], (len(d1),))
     ---------------------------------------------------------------------------
