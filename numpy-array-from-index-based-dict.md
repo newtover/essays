@@ -70,5 +70,5 @@ and the usage:
 
 Moreover, the same wrapper can be used for the lists and numpy arrays as well:
 
-    In [66]: np.array(DictIterator(_))
-    Out[66]: array([40, 30, 20, 10,  0])
+    In [16]: np.array(DictIterator(_))
+    Out[16]: array([40, 30, 20, 10,  0])
