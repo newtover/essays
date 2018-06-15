@@ -5,7 +5,9 @@ Suppose, you have a hash index stored as python dict:
     In [11]: hash_index
     Out[11]: {0: 40, 1: 30, 2: 20, 3: 10, 4: 0}
 
-and now you want to build a numpy array from the index. The keys are the positions in the array, the values are the values to put in the corresponding positions. At least for me, it's not clear what is the best way to do this.
+and now you want to build a numpy array from the index. The keys are the positions in the array, the values are the values to put in the corresponding positions. 
+
+At least for me, it wasn't clear what is the best way to do this.
 
 ## Solution 1
 The most obvious approach is to create a list and pass in to the constructor of array:
