@@ -35,7 +35,7 @@ newtover/iters.py:6: error: "Iterable[str]" has no attribute "__next__"
 Found 1 error in 1 file (checked 1 source file)
 ```
 
-That is `Iterable` is something that has `__iter__()` method, which produces an iterator, where `Iterator` is something that has `__next__()` method and is `Iterable` as well (which usually returns `self`).
+That is `Iterable` is something that has `__iter__()` method, which produces an iterator, where `Iterator` is something that has `__next__()` method and is `Iterable` as well (`__iter__()` method which usually returns `self`).
 
 ---
 Both `Iterable` and `Iterator` are usually good for type arguments within the function body:
