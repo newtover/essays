@@ -97,7 +97,7 @@ Which means that a `list`, a `set` or `dict.keys()`, `range` have not a `__next_
 
 ---
 
-And if you annotate return values as `Iterable`:
+Now if you annotate return values as `Iterable` and use `Iterator` for arguments:
 
 ```
 from typing import Iterable, Iterator
