@@ -1,0 +1,1 @@
+Живет тут: https://github.com/newtover/python_strings/wiki
