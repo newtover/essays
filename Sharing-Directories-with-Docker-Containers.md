@@ -82,7 +82,7 @@ to docker build-time `USER_ID` and `USER_GID` environment variables, so that
 you could prepare the corresponding user (using `adduser` and `addgroup`)
 within the image and run the container with the same `-u $USER_ID:$USER_GID`
 after that. There are several issues here, but the main is that the image
-becomes hardly reusable. When you need to run the container a different user,
+becomes hardly reusable. When you need to run the container with a different user,
 you have to rebuild the image before that.
 
 It should be noted that the first created user is usually a user
