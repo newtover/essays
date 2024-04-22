@@ -133,6 +133,19 @@ under which we would mount our `.aws` directory.
 
 ![Attach Host Volumes 3](./img/docker-shared-volumes-3.png)
 
+## Conclusion
+
+We can summarize the examples above into the following:
+
+- You don't need to specifically prepare a directory on the host system,
+  so that a container that you run could write into it, it just should exist.
+- All you need to do is to pass the current user and the main group (`-u "$(id -u):$(id -g)"`).
+- The directory where you mount the shared directory should be listable by `other`
+  (`/root` is listable only by `root`, so you won't be able to write anything to its
+  subdirectories, even you have full access to the subdirectory itself)
+- `$HOME` can be the same for all possible users of the image or can be specified
+  and mounted at runtime.
+
 ## Security note
 
 I think it is clear now that the person who can run docker containers
