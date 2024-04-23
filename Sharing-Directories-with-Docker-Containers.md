@@ -1,5 +1,8 @@
 # Sharing Directories with Docker Containers
 
+<details>
+  <summary>Long Introduction</summary>
+
 ## Long Introduction
 
 I have been working with Docker since 2017. By the moment I started,
@@ -49,9 +52,13 @@ and that I knew many people who still had the issue. They still have.
 
 It seems I can shed some light.
 
+</details>
+
 ## What is the matter?
 
-It is hard to explain exactly where my misunderstanding did come from,
+It may sound surprising, but the task of sharing data between the host system
+and Docker containers turns out slightly confusing.
+It is hard to explain exactly where this confusion comes from,
 but here are some thoughts:
 
 - By default, docker deamon runs containers from `root`. If you pass a shared
@@ -93,16 +100,19 @@ the set-up 1000:1000 user and running containers with that user.
 
 ## A Better Approach
 
-So, what was that thing that amazed me in the quote above? It was that I can now
-set up owner and group permissions for my shared directories in a volume and attach
-the volume to my container that needs those permissions. That changes the game
-completely, you can now make pre-cooking in volumes instead of the `Dockerfile`.
+So, what was that thing that amazed me in the quote from the long introduction?
+I suddenly understood that I can set up owner and group permissions for my shared
+directories in a volume and attach the volume to my container that needs those permissions.
+That changes the game completely, you can now make pre-cooking in volumes
+instead of the `Dockerfile`.
 It has its drawbacks, but allows to make the images reusable.
 
 And next I realized something that had always been under my nose. It is not only
 volumes are attached with set-up owner and group permissions. *Any directory you
 attach to a container is attached with owner and group permissions of the host
-system.* You don't need to run `chown` or `chmod` when you build the image at all.
+system.* That was actually old news, but that means that you don't need to run `chown` or `chmod` when you build the image at all.
+You can install anything you need from `root`, and then just run the container
+with the -u `owner:group` of that directory.
 
 Now we will look at some examples.
 
@@ -128,7 +138,7 @@ and gid=2000 and make it create a file in the attached directory.
 
 ![Attach Host Volumes 2](./img/docker-shared-volumes-2.png)
 
-So you don't have to create additional users or groups when you build
+As you see, you don't have to create additional users or groups when you build
 your image to be able to run a container with the users and groups.
 
 And the last thing that we haven't yet addressed is the home directory
